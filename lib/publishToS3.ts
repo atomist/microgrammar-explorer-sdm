@@ -107,7 +107,7 @@ async function pushToS3(s3: S3, inv: ProjectAwareGoalInvocation, params: Publish
             return;
         }
 
-        const content = await fs.readFile((project as GitProject).baseDir +
+        const content = await fs.readFile(project.baseDir +
             path.sep + file.path); // replace with file.getContentBuffer when that makes it into automation-client
 
         logger.info(`File: ${file.path}, key: ${key}, contentType: ${contentType}`);
