@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { Project } from "@atomist/automation-client";
 import {
     ExecuteGoalResult,
     goal,
@@ -22,6 +23,8 @@ import {
     goals,
     lastLinesLogInterpreter,
     onAnyPush,
+    PushListenerInvocation,
+    PushTest,
     SoftwareDeliveryMachine,
     SoftwareDeliveryMachineConfiguration,
     spawnLog,
@@ -59,7 +62,7 @@ export function machine(
         builder: nodeBuilder({ command: "npm", args: ["run", "build"] }),
     }).withProjectListener(NodeModulesProjectListener);
 
-    const publish = goal({ displayName: "publishToS3" },
+    const publish = goal({ displayName: "publishToS3", preApproval: true },
         executePublishToS3({
             bucketName: "microgrammar.atomist.com",
             region: "us-west-2",
@@ -67,7 +70,10 @@ export function machine(
             pathTranslation: (filepath, inv) => inv.id.sha + path.sep
                 + filepath.split(path.sep).slice(1).join(path.sep),
         }),
-        { logInterpreter: lastLinesLogInterpreter("no S3 for you", 10) })
+        {
+            pushTest: requestsUploadToS3(),
+            logInterpreter: lastLinesLogInterpreter("no S3 for you", 10),
+        })
         .withProjectListener(NodeModulesProjectListener)
         .withProjectListener(NpmBuildProjectListener());
 
@@ -80,6 +86,26 @@ export function machine(
     );
 
     return sdm;
+}
+
+function requestsUploadToS3(): PushTest {
+    return {
+        name: "PleaseUpload",
+        mapping: async (pushListenerInvocation: PushListenerInvocation): Promise<boolean> => {
+            // does any file ask for publishment
+            const entryPointFile = await pushListenerInvocation.project.getFile("server.ts");
+            if (!entryPointFile) {
+                return false;
+            }
+            const entryPointFileContent = await entryPointFile.getContent();
+            return containsRequestForPublishment(entryPointFileContent);
+        },
+    };
+}
+
+export function containsRequestForPublishment(fileContent: string): boolean {
+    const publishRequest = /Atomist.*[upload|publish].*to s3/mi;
+    return publishRequest.test(fileContent);
 }
 
 export function NpmBuildProjectListener(): GoalProjectListenerRegistration {
