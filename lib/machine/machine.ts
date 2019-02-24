@@ -62,7 +62,7 @@ export function machine(
         builder: nodeBuilder({ command: "npm", args: ["run", "build"] }),
     }).withProjectListener(NodeModulesProjectListener);
 
-    const publish = goal({ displayName: "publishToS3", preApproval: true },
+    const publish = goal({ displayName: "publishToS3" },
         executePublishToS3({
             bucketName: "microgrammar.atomist.com",
             region: "us-west-2",
