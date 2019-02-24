@@ -26,9 +26,9 @@ import {
     doWithProject,
     ExecuteGoal,
     ExecuteGoalResult,
+    GoalInvocation,
     ProjectAwareGoalInvocation,
     slackWarningMessage,
-    GoalInvocation,
 } from "@atomist/sdm";
 import {
     SlackMessage,
@@ -43,13 +43,13 @@ function putObject(s3: S3, params: S3.Types.PutObjectRequest): () => Promise<S3.
     return promisify<S3.Types.PutObjectOutput>(cb => s3.putObject(params, cb));
 }
 
-export type GlobPatterns = string[]
+export type GlobPatterns = string[];
 
 export interface PublishToS3Options {
-    bucketName: string,
-    region: string,
-    filesToPublish: GlobPatterns,
-    pathTranslation: (filePath: string, inv: GoalInvocation) => string,
+    bucketName: string;
+    region: string;
+    filesToPublish: GlobPatterns;
+    pathTranslation: (filePath: string, inv: GoalInvocation) => string;
 }
 
 export function executePublishToS3(params: PublishToS3Options): ExecuteGoal {
@@ -72,7 +72,6 @@ export function executePublishToS3(params: PublishToS3Options): ExecuteGoal {
                 if (result.warnings.length > 0) {
                     await inv.addressChannels(formatWarningMessage(linkToIndex, result.warnings, inv.id, inv.context));
                 }
-
 
                 return {
                     code: 0,
@@ -111,7 +110,7 @@ async function pushToS3(s3: S3, inv: ProjectAwareGoalInvocation, params: Publish
         const content = await fs.readFile((project as GitProject).baseDir +
             path.sep + file.path); // replace with file.getContentBuffer when that makes it into automation-client
 
-        logger.info(`File: ${file.path}, key, ${key}, contentType: ${contentType}`);
+        logger.info(`File: ${file.path}, key: ${key}, contentType: ${contentType}`);
         await putObject(s3, {
             Bucket: bucketName,
             Key: key,

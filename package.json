@@ -27,6 +27,7 @@
     "@atomist/sdm-pack-build": "^1.0.3",
     "@atomist/sdm-pack-node": "^1.0.3-master.20190222121819",
     "@atomist/slack-messages": "^1.1.0",
+    "@types/mime-types": "^2.1.0",
     "aws-sdk": "^2.409.0",
     "mime-types": "^2.1.22"
   },

@@ -61,7 +61,7 @@ export function machine(
 
     const publish = goal({ displayName: "publishToS3" },
         executePublishToS3({
-            bucketName: "microgrammar-explorer.atomist.com",
+            bucketName: "microgrammar.atomist.com",
             region: "us-west-2",
             filesToPublish: ["static/**/*", "public/**/*", "app/index.html"],
             pathTranslation: (filepath, inv) => inv.id.sha + path.sep
