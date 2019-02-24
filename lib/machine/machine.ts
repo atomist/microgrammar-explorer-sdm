@@ -28,6 +28,7 @@ import {
     SoftwareDeliveryMachine,
     SoftwareDeliveryMachineConfiguration,
     spawnLog,
+    whenPushSatisfies,
 } from "@atomist/sdm";
 import {
     createSoftwareDeliveryMachine,
@@ -71,18 +72,17 @@ export function machine(
                 + filepath.split(path.sep).slice(1).join(path.sep),
         }),
         {
-            pushTest: requestsUploadToS3(),
             logInterpreter: lastLinesLogInterpreter("no S3 for you", 10),
         })
         .withProjectListener(NodeModulesProjectListener)
         .withProjectListener(NpmBuildProjectListener());
 
-    const publishGoals = goals("buildinate")
+    const publishGoals = goals("publish to S3")
         .plan(build)
         .plan(publish).after(build);
 
     sdm.withPushRules(
-        onAnyPush().setGoals(publishGoals),
+        whenPushSatisfies(requestsUploadToS3()).setGoals(publishGoals),
     );
 
     return sdm;
