@@ -15,12 +15,16 @@
  */
 
 import {
+    goals,
+    onAnyPush,
     SoftwareDeliveryMachine,
     SoftwareDeliveryMachineConfiguration,
 } from "@atomist/sdm";
 import {
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
+import { Build } from "@atomist/sdm-pack-build";
+import { nodeBuilder } from "@atomist/sdm-pack-node";
 
 /**
  * Initialize an sdm definition, and add functionality to it.
@@ -41,6 +45,18 @@ export function machine(
     sdm.
      * and see what the IDE suggests for after the dot
      */
+
+    const build = new Build().with({
+        name: "npm",
+        builder: nodeBuilder("run", "build"),
+    });
+
+    const buildGoals = goals("buildinate")
+        .plan(build);
+
+    sdm.withPushRules(
+        onAnyPush().setGoals(buildGoals),
+    );
 
     return sdm;
 }

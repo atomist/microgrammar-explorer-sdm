@@ -1,16 +1,16 @@
 {
-  "name": "microgrammer-explorer-sdm",
+  "name": "microgrammar-explorer-sdm",
   "version": "0.1.0",
   "description": "my new project",
   "author": "jessitron",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/jessitron/microgrammer-explorer-sdm#readme",
+  "homepage": "https://github.com/jessitron/microgrammar-explorer-sdm#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jessitron/microgrammer-explorer-sdm.git"
+    "url": "https://github.com/jessitron/microgrammar-explorer-sdm.git"
   },
   "bugs": {
-    "url": "https://github.com/jessitron/microgrammer-explorer-sdm/issues"
+    "url": "https://github.com/jessitron/microgrammar-explorer-sdm/issues"
   },
   "keywords": [
     "atomist",
@@ -23,7 +23,9 @@
   "dependencies": {
     "@atomist/automation-client": "^1.2.0",
     "@atomist/sdm": "^1.2.0",
-    "@atomist/sdm-core": "^1.2.0"
+    "@atomist/sdm-core": "^1.2.0",
+    "@atomist/sdm-pack-build": "^1.0.3",
+    "@atomist/sdm-pack-node": "^1.0.2"
   },
   "devDependencies": {
     "@atomist/sdm-local": "^1.0.4",
