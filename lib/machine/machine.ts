@@ -34,7 +34,13 @@ import {
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
 import { Build } from "@atomist/sdm-pack-build";
-import { DevelopmentEnvOptions, IsNode, nodeBuilder, NodeModulesProjectListener, npmInstallPreparation } from "@atomist/sdm-pack-node";
+import {
+    DevelopmentEnvOptions,
+    IsNode,
+    nodeBuilder,
+    NodeModulesProjectListener,
+    npmInstallPreparation,
+} from "@atomist/sdm-pack-node";
 import * as path from "path";
 import { executePublishToS3 } from "../publishToS3";
 
