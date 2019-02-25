@@ -58,11 +58,6 @@ export function machine(
      * and see what the IDE suggests for after the dot
      */
 
-    const build = new Build().with({
-        name: "npm",
-        builder: nodeBuilder({ command: "npm", args: ["run", "build"] }),
-    }).withProjectListener(NodeModulesProjectListener);
-
     const publish = goal({ displayName: "publishToS3" },
         executePublishToS3({
             bucketName: "microgrammar.atomist.com",
@@ -70,6 +65,7 @@ export function machine(
             filesToPublish: ["static/**/*", "public/**/*", "app/index.html"],
             pathTranslation: (filepath, inv) => inv.id.sha + path.sep
                 + filepath.split(path.sep).slice(1).join(path.sep),
+            pathToIndex: "app/index.html",
         }),
         {
             logInterpreter: lastLinesLogInterpreter("no S3 for you", 10),
@@ -77,9 +73,8 @@ export function machine(
         .withProjectListener(NodeModulesProjectListener)
         .withProjectListener(NpmBuildProjectListener());
 
-    const publishGoals = goals("publish to S3")
-        .plan(build)
-        .plan(publish).after(build);
+    const publishGoals = goals("publish static site to S3")
+        .plan(publish);
 
     sdm.withPushRules(
         whenPushSatisfies(requestsUploadToS3()).setGoals(publishGoals),

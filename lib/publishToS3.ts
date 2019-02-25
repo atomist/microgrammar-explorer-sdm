@@ -50,6 +50,7 @@ export interface PublishToS3Options {
     region: string;
     filesToPublish: GlobPatterns;
     pathTranslation: (filePath: string, inv: GoalInvocation) => string;
+    pathToIndex: string;
 }
 
 export function executePublishToS3(params: PublishToS3Options): ExecuteGoal {
@@ -64,7 +65,7 @@ export function executePublishToS3(params: PublishToS3Options): ExecuteGoal {
                 });
                 const result = await pushToS3(s3, inv, params);
 
-                const linkToIndex = result.bucketUrl + inv.id.sha + "/";
+                const linkToIndex = result.bucketUrl + params.pathTranslation(params.pathToIndex, inv);
                 inv.progressLog.write("URL: " + linkToIndex);
                 inv.progressLog.write(result.warnings.join("\n"));
                 inv.progressLog.write(`${result.fileCount} files uploaded to ${linkToIndex}`);
