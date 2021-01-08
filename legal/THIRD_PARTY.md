@@ -61,7 +61,7 @@ Apache License 2.0 - [http://www.apache.org/licenses/LICENSE-2.0](http://www.apa
 |`spdx-correct`|`3.1.0`|Kyle E. Mitchell|[https://github.com/jslicense/spdx-correct.js](https://github.com/jslicense/spdx-correct.js)|
 |`tslib`|`1.10.0`|Microsoft Corp.|[https://github.com/Microsoft/tslib](https://github.com/Microsoft/tslib)|
 |`tunnel-agent`|`0.6.0`|Mikeal Rogers|[https://github.com/mikeal/tunnel-agent](https://github.com/mikeal/tunnel-agent)|
-|`typescript`|`3.6.2`|Microsoft Corp.|[https://github.com/Microsoft/TypeScript](https://github.com/Microsoft/TypeScript)|
+|`typescript`|`3.6.3`|Microsoft Corp.|[https://github.com/Microsoft/TypeScript](https://github.com/Microsoft/TypeScript)|
 |`validate-npm-package-license`|`3.0.4`|Kyle E. Mitchell|[https://github.com/kemitchell/validate-npm-package-license.js](https://github.com/kemitchell/validate-npm-package-license.js)|
 
 #### BSD
@@ -73,7 +73,7 @@ Apache License 2.0 - [http://www.apache.org/licenses/LICENSE-2.0](http://www.apa
 |`pad`|`0.0.4`|David Worms|[https://github.com/wdavidw/node-pad](https://github.com/wdavidw/node-pad)|
 
 #### BSD-2-Clause
-BSD 2-Clause "Simplified" License - [http://www.opensource.org/licenses/BSD-2-Clause](http://www.opensource.org/licenses/BSD-2-Clause)
+BSD 2-Clause "Simplified" License - [https://opensource.org/licenses/BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
@@ -88,7 +88,7 @@ BSD 2-Clause "Simplified" License - [http://www.opensource.org/licenses/BSD-2-Cl
 |`yarn`|`1.17.3`||[https://github.com/yarnpkg/yarn](https://github.com/yarnpkg/yarn)|
 
 #### BSD-3-Clause
-BSD 3-Clause "New" or "Revised" License - [http://www.opensource.org/licenses/BSD-3-Clause](http://www.opensource.org/licenses/BSD-3-Clause)
+BSD 3-Clause "New" or "Revised" License - [https://opensource.org/licenses/BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
@@ -115,14 +115,14 @@ BSD 3-Clause "New" or "Revised" License - [http://www.opensource.org/licenses/BS
 |`tough-cookie`|`2.4.3`|Jeremy Stashewsky|[https://github.com/salesforce/tough-cookie](https://github.com/salesforce/tough-cookie)|
 
 #### CC-BY-3.0
-Creative Commons Attribution 3.0 Unported - [http://creativecommons.org/licenses/by/3.0/legalcode](http://creativecommons.org/licenses/by/3.0/legalcode)
+Creative Commons Attribution 3.0 Unported - [https://creativecommons.org/licenses/by/3.0/legalcode](https://creativecommons.org/licenses/by/3.0/legalcode)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
 |`spdx-exceptions`|`2.2.0`|The Linux Foundation|[https://github.com/kemitchell/spdx-exceptions.json](https://github.com/kemitchell/spdx-exceptions.json)|
 
 #### CC0-1.0
-Creative Commons Zero v1.0 Universal - [http://creativecommons.org/publicdomain/zero/1.0/legalcode](http://creativecommons.org/publicdomain/zero/1.0/legalcode)
+Creative Commons Zero v1.0 Universal - [https://creativecommons.org/publicdomain/zero/1.0/legalcode](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
@@ -156,7 +156,7 @@ Creative Commons Zero v1.0 Universal - [http://creativecommons.org/publicdomain/
 |`cli-color`|`0.1.7`|Mariusz Nowak|[https://github.com/medikoo/cli-color](https://github.com/medikoo/cli-color)|
 
 #### GPL-3.0
-GNU General Public License v3.0 only - [http://www.gnu.org/licenses/gpl-3.0-standalone.html](http://www.gnu.org/licenses/gpl-3.0-standalone.html)
+GNU General Public License v3.0 only - [https://www.gnu.org/licenses/gpl-3.0-standalone.html](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
@@ -232,7 +232,7 @@ ISC License - [https://www.isc.org/downloads/software-support-policy/isc-license
 |`yallist`|`3.0.3`|Isaac Z. Schlueter|[https://github.com/isaacs/yallist](https://github.com/isaacs/yallist)|
 
 #### MIT
-MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)
+MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
@@ -988,7 +988,7 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`dreamopt`|`0.6.0`|Andrey Tarantsov|[https://github.com/andreyvit/dreamopt.js](https://github.com/andreyvit/dreamopt.js)|
 
 #### Unlicense
-The Unlicense - [http://unlicense.org/](http://unlicense.org/)
+The Unlicense - [https://unlicense.org/](https://unlicense.org/)
 
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
